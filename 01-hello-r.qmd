@@ -1,0 +1,81 @@
+---
+title: "Lab 01 - Hello R"
+author: "Lucy D'Agostino McGowan"
+date: "2022-01-10"
+format: 
+  html:
+    self-contained: true
+editor: visual
+---
+
+### Load packages
+
+```{r load-packages, message = FALSE, warning = FALSE}
+library(tidyverse) 
+library(ISLR)
+```
+
+
+### Exercise 1
+
+(Type your answer to Exercise 1 here. This exercise does not require any R code.)
+
+## Exercise 2
+
+(The answers for this Exercise are given for you below. Delete this explanation line)
+
+```{r add-variable}
+Smarket <- Smarket |>
+  group_by(Year) |>
+  mutate(day = 1:n())
+```
+
+### Exercise 3
+
+(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
+
+First let's filter the data set to only include rows `Year` is 2001. Then create a visualization of the Volume by day for the year 2001.
+
+```{r plot-2001}
+smarket_2001 <- Smarket |>
+  filter(Year == 2001)
+
+ggplot(data = smarket_2001, mapping = aes(x = day, y = Volume)) +
+  geom_point() + 
+  labs(title = "Volume for 2001")
+```
+
+And finally calculate the average Volume in 2001.
+
+```{r avg-2001}
+smarket_2001 |>
+  summarize(avg_volume = mean(Volume))
+```
+
+### Exercise 4
+
+(Add code and narrative as needed. Note that the R chunks are labeled with `plot-2002` and `avg-2002` to provide spaces to place the code for plotting and calculating the average volume. To finish, clean up the narrative by removing these instructions.)
+
+Blah blah blah...
+
+```{r plot-2002}
+```
+
+I'm some text, you should replace me with more meaningful text...
+
+```{r avg-2002}
+```
+
+### Exercise 5
+
+(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+
+```{r}
+```
+
+```{r}
+```
+
+### Exercise 6
+
+(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.)
